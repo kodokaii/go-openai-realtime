@@ -8,10 +8,10 @@ import (
 	"log"
 	"os"
 
-	openairt "github.com/WqyJh/go-openai-realtime"
-	"github.com/WqyJh/go-openai-realtime/examples/voice/pcm"
 	"github.com/faiface/beep"
 	"github.com/faiface/beep/speaker"
+	openairt "github.com/kodokaii/go-openai-realtime"
+	"github.com/kodokaii/go-openai-realtime/examples/voice/pcm"
 )
 
 func main() {

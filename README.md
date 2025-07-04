@@ -1,19 +1,20 @@
 # OpenAI Realtime API SDK for Golang
 
-[![Go Reference](https://pkg.go.dev/badge/github.com/WqyJh/go-openai-realtime.svg)](https://pkg.go.dev/github.com/WqyJh/go-openai-realtime)
-[![Go Report Card](https://goreportcard.com/badge/github.com/WqyJh/go-openai-realtime)](https://goreportcard.com/report/github.com/WqyJh/go-openai-realtime)
+[![Go Reference](https://pkg.go.dev/badge/github.com/kodokaii/go-openai-realtime.svg)](https://pkg.go.dev/github.com/kodokaii/go-openai-realtime)
+[![Go Report Card](https://goreportcard.com/badge/github.com/kodokaii/go-openai-realtime)](https://goreportcard.com/report/github.com/kodokaii/go-openai-realtime)
 [![codecov](https://codecov.io/gh/WqyJh/go-openai-realtime/branch/main/graph/badge.svg?token=bCbIfHLIsW)](https://codecov.io/gh/WqyJh/go-openai-realtime)
 
 This library provides unofficial Go clients for [OpenAI Realtime API](https://platform.openai.com/docs/api-reference/realtime). We support all 9 client events and 28 server events.
 
 [Model Support](https://platform.openai.com/docs/models/gpt-4o-realtime):
+
 - gpt-4o-realtime-preview
 - gpt-4o-realtime-preview-2024-10-01
 
 ## Installation
 
 ```bash
-go get github.com/WqyJh/go-openai-realtime
+go get github.com/kodokaii/go-openai-realtime
 ```
 
 Currently, go-openai-realtime requires Go version 1.19 or greater.
@@ -32,7 +33,7 @@ import (
 	"log"
 	"os"
 
-	openairt "github.com/WqyJh/go-openai-realtime"
+	openairt "github.com/kodokaii/go-openai-realtime"
 )
 
 func main() {
@@ -52,8 +53,8 @@ Switch to another websocket dialer [gorilla/websocket](https://github.com/gorill
 
 ```go
 import (
-	openairt "github.com/WqyJh/go-openai-realtime"
-	gorilla "github.com/WqyJh/go-openai-realtime/contrib/ws-gorilla"
+	openairt "github.com/kodokaii/go-openai-realtime"
+	gorilla "github.com/kodokaii/go-openai-realtime/contrib/ws-gorilla"
 )
 
 func main() {
@@ -67,14 +68,13 @@ func main() {
 
 </details>
 
-
 <details>
 <summary>Send message</summary>
 
 ```go
 
 import (
-	openairt "github.com/WqyJh/go-openai-realtime"
+	openairt "github.com/kodokaii/go-openai-realtime"
 )
 
 func main() {
@@ -87,7 +87,6 @@ func main() {
 ```
 
 </details>
-
 
 <details>
 <summary>Read message</summary>
@@ -114,7 +113,6 @@ that means the connection is broken and should be closed or had already been clo
 
 </details>
 
-
 <details>
 <summary>Subscribe to events</summary>
 
@@ -133,7 +131,6 @@ The registered handlers will be called in the order of registration.
 A handler is function that handle `ServerEvent`. Use `event.ServerEventType()` to determine the type of the event.
 Based on the event type, you can get the event data by type assertion.
 
-
 ```go
 	// Teletype response
 	responseDeltaHandler := func(ctx context.Context, event openairt.ServerEvent) {
@@ -143,7 +140,6 @@ Based on the event type, you can get the event data by type assertion.
 		}
 	}
 ```
-
 
 There's no need to `Stop` the `ConnHandler`, it will exit when the connection is closed.
 If you want to wait for the `ConnHandler` to exit, you can use `Err()`. This will return
@@ -160,10 +156,7 @@ after it, which cause deadlock.
 	}
 ```
 
-
 </details>
-
-
 
 ## More examples
 
@@ -178,5 +171,6 @@ There's also a [gorilla/websocket](https://github.com/gorilla/websocket) adapter
 You can easily implement your own adapter by implementing the `WebSocketConn` interface and `WebSocketDialer` interface.
 
 Supported adapters:
+
 - [coder/websocket](./ws_coder.go)
 - [gorilla/websocket](./contrib/ws-gorilla)

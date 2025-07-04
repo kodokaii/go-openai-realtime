@@ -10,12 +10,12 @@ import (
 	"os"
 	"time"
 
-	openairt "github.com/WqyJh/go-openai-realtime"
-	"github.com/WqyJh/go-openai-realtime/examples/voice/pcm"
-	"github.com/WqyJh/go-openai-realtime/examples/voice/recorder"
 	"github.com/faiface/beep"
 	"github.com/faiface/beep/speaker"
 	"github.com/gordonklaus/portaudio"
+	openairt "github.com/kodokaii/go-openai-realtime"
+	"github.com/kodokaii/go-openai-realtime/examples/voice/pcm"
+	"github.com/kodokaii/go-openai-realtime/examples/voice/recorder"
 	"github.com/sashabaranov/go-openai"
 )
 
